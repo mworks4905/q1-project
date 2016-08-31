@@ -1,12 +1,15 @@
 $(document).ready(function() {
 
     $('.startBtn').on('click', function() {
+      $('canvas').append('.canvasBox')
+      console.log();
+        // startGame()
 
-        startGame()
     })
 
-
     function startGame() {
+
+
         //module aliases
         var Engine = Matter.Engine,
             Render = Matter.Render,
@@ -115,10 +118,15 @@ $(document).ready(function() {
             }
         }
 
+        var score = 0
         function createRock() {
             rock = Bodies.polygon(170, 450, 12, 20);
             World.add(engine.world, rock);
             elastic.bodyB = rock;
+            score ++
+            $('.score').text(score)
+
+            //console.log(score);
             //console.log('You shot a rock!')
         }
 
@@ -163,6 +171,7 @@ $(document).ready(function() {
             Events.off(engine)
             var again = confirm('Do you want to play again?')
             if(again === true){
+              $('.score').text('0')
               startGame()
             }
           } else {

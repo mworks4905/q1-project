@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
     $('.startBtn').on('click', function() {
-      $('canvas').append('.canvasBox')
+      // $('canvas').append('.canvasBox')
       console.log();
-        // startGame()
+      startGame()
 
     })
 

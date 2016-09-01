@@ -1,14 +1,12 @@
 $(document).ready(function() {
 
     $('.startBtn').on('click', function() {
-      // $('canvas').append('.canvasBox')
-      console.log();
+
       startGame()
 
     })
 
     function startGame() {
-
 
         //module aliases
         var Engine = Matter.Engine,
@@ -19,8 +17,6 @@ $(document).ready(function() {
             Composites = Matter.Composites,
             Constraint = Matter.Constraint,
             Events = Matter.Events;
-
-
 
         // create a Matter.js engine
         var engine = Engine.create(document.body, {
@@ -39,7 +35,6 @@ $(document).ready(function() {
                 stiffness: 1
             } //how much an obj adhears to the mouse
         });
-
 
         // creating structure objects
         var hill1 = Bodies.rectangle(650, 500, 450, 40, {
@@ -106,7 +101,7 @@ $(document).ready(function() {
 
         Events.on(mouse, 'mouseup', function(event) {
             var mousePosition = event.mouse.position;
-            //console.log('mouseup at ' + mousePosition.x + ' ' + mousePosition.y);
+
             if (mousePosition.x < 250 && mousePosition.y > 315) {
                 setTimeout(rockPosition, 0145)
             }
@@ -119,20 +114,18 @@ $(document).ready(function() {
         }
 
         var score = 0
+
         function createRock() {
             rock = Bodies.polygon(170, 450, 12, 20);
             World.add(engine.world, rock);
             elastic.bodyB = rock;
             score ++
-            $('.score').text(score)
-
-            //console.log(score);
-            //console.log('You shot a rock!')
+            $('.score').children().text(score)
         }
 
-        var event1
-        var event2
-        var event3
+        var event1;
+        var event2;
+        var event3;
 
         Events.on(engine, 'tick', function(event) {
             if (objPos1.x > 785 || objPos1.x < 775) {
@@ -162,16 +155,16 @@ $(document).ready(function() {
         Engine.run(engine);
 
         function endGame() {
-          console.log(event1);
-          console.log(event2);
-          console.log(event3);
 
           if (event1 == true && event2 == true && event3 == true) {
-            alert('YOU WON!')
+            alert('YOU WON! \b You used only ' + score + ' shots!')
             Events.off(engine)
+
             var again = confirm('Do you want to play again?')
+
             if(again === true){
-              $('.score').text('0')
+              $('.score').children().text('0')
+              $('canvas').remove()
               startGame()
             }
           } else {
@@ -180,5 +173,3 @@ $(document).ready(function() {
         }
     }
 })
-
-// set up a function with a button for start game. This button will call a function that will, when ran will start the engine affectively starting the game over

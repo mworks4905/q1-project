@@ -15,10 +15,14 @@ body {
   font-size: 40px;
   font-family: Arial;
   font-weight: bold;
+  border-radius: 100px;
 
 }
 .score{
   font-weight: 500;
   text-align: center;
   color: gray;
+}
+canvas{
+
 }

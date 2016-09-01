@@ -5,6 +5,7 @@ $(document).ready(function() {
   $('.slider').slider({full_width: true});
 
   $('.startBtn').on('click', function() {
+    $('canvas').remove()
     startGame()
     // $('canvasBox').append('canvas')
   })

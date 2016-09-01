@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <title>Catapult</title>
     <script src="./matter-js/build/matter.js" type="text/javascript"></script>
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
+    <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
@@ -13,6 +14,7 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!--- My Stuff DONT Delete -->
     <script src="app.js"></script>
@@ -22,17 +24,34 @@
 
 <body>
 
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="game.html">Catapult</a></li>
+  </ul>
   <nav>
-  <div class="nav-wrapper green">
-    <a href="index.html" class="brand-logo">Catapult</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="index.html">Home</a></li>
-    </ul>
-  </div>
-</nav>
+    <div class="nav-wrapper green">
+      <a href="index.html" class="brand-logo">Games</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="index.html">Home</a></li>
+        <!-- Dropdown Trigger -->
+        <li><a class="dropdown-button" href="index.html" data-activates="dropdown1">Games<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+    </div>
+  </nav>
+
+<div class="slider">
+  <ul class="slides">
+    <li>
+      <img src="catapult.jpg"> <!-- random image -->
+      <div class="caption center-align">
+        <h3>Play Catapult Now</h3>
+        <a class="waves-effect waves-light btn startBtn">PLAY</a>
+      </div>
+    </li>
+  </ul>
+</div>
 
 <div class="canvasBox">
-    <div class="startBtn center-align">PLAY</div>
+    <!-- <div class="startBtn center-align">PLAY</div> -->
     <div class="score">Shots Fired: <span>0</span></div>
 </div>
 

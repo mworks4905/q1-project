@@ -1,10 +1,13 @@
 $(document).ready(function() {
 
-    $('.startBtn').on('click', function() {
-      startGame()
-      // $('canvasBox').append('canvas')
+  $('.parallax').parallax();
 
-    })
+  $('.slider').slider({full_width: true});
+
+  $('.startBtn').on('click', function() {
+    startGame()
+    // $('canvasBox').append('canvas')
+  })
 
     function startGame() {
 

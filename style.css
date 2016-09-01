@@ -2,27 +2,37 @@
 body {
   background: #222;
 
+}
 
+.catapult{
+  position: absolute;
+  width: 100%;
+}
+
+.parallax-container {
+  height: 450px;
 }
 
 
 .startBtn{
-  height: 50px;
-  width: 150px;
-  background-color: green;
-  margin: auto;
-  margin-top: 50px;
-  padding-bottom: 60px;
+  height: auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
   font-size: 40px;
   font-family: Arial;
   font-weight: bold;
   border-radius: 100px;
+  background-color: green;
 
+}
+.slider .indicators .indicator-item.active {
+  display: none;
 }
 .score{
   font-weight: 500;
   text-align: center;
   color: gray;
+
 }
 canvas{
 width: 800px;

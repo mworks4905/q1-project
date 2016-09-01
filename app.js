@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
     $('.startBtn').on('click', function() {
-
       startGame()
+      // $('canvasBox').append('canvas')
 
     })
 

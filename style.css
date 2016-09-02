@@ -5,6 +5,7 @@ body {
     font-family: 'Bungee', cursive;
     margin-left: 20px;
 }
+
 .catapult {
     position: absolute;
     width: 100%;
@@ -23,7 +24,7 @@ body {
     font-family: Arial;
     font-weight: bold;
     border-radius: 100px;
-    background-color: green;
+    background-color: #00695c;
 }
 .slider .indicators .indicator-item.active {
     display: none;

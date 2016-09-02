@@ -7,7 +7,8 @@ $(document).ready(function() {
     });
 
     $('.startBtn').on('click', function() {
-        startGame()
+        $('canvas').remove();
+        startGame();
     });
 
     function startGame() {

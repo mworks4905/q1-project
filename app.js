@@ -1,14 +1,14 @@
 $(document).ready(function() {
 
-  $('.parallax').parallax();
+    $('.parallax').parallax();
 
-  $('.slider').slider({full_width: true});
+    $('.slider').slider({
+        full_width: true
+    });
 
-  $('.startBtn').on('click', function() {
-    $('canvas').remove()
-    startGame()
-    // $('canvasBox').append('canvas')
-  })
+    $('.startBtn').on('click', function() {
+        startGame()
+    });
 
     function startGame() {
 
@@ -33,7 +33,7 @@ $(document).ready(function() {
                 }
             }
         });
-
+        // setting up the mouse
         var mouse = MouseConstraint.create(engine, {
             constraint: {
                 stiffness: 1
@@ -62,13 +62,13 @@ $(document).ready(function() {
 
         var ramp = Bodies.rectangle(695, 267, 200, 15);
 
-        var objective1 = Bodies.rectangle(780, 257, 20, 20)
-        var objective2 = Bodies.rectangle(700, 425, 20, 20)
-        var objective3 = Bodies.rectangle(780, 575, 20, 20)
+        var objective1 = Bodies.rectangle(780, 257, 20, 20);
+        var objective2 = Bodies.rectangle(700, 425, 20, 20);
+        var objective3 = Bodies.rectangle(780, 575, 20, 20);
 
-        var objPos1 = objective1.position
-        var objPos2 = objective2.position
-        var objPos3 = objective3.position
+        var objPos1 = objective1.position;
+        var objPos2 = objective2.position;
+        var objPos3 = objective3.position;
 
         var wall1 = Bodies.rectangle(500, 100, 40, 100);
         var wall2 = Bodies.rectangle(500, 225, 40, 100);
@@ -98,34 +98,34 @@ $(document).ready(function() {
 
         // add all of the bodies to the world
         World.add(engine.world, [mouse, ground, hill1, hill2, hill3, rock, elastic]);
-        World.add(engine.world, [wall1, wall2, wall3, wall4, wall5, wall6, wall7, wall8, wall9])
+        World.add(engine.world, [wall1, wall2, wall3, wall4, wall5, wall6, wall7, wall8, wall9]);
         World.add(engine.world, [objective1, objective2, objective3]);
-        World.add(engine.world, [box1, box2, ramp])
+        World.add(engine.world, [box1, box2, ramp]);
 
 
         Events.on(mouse, 'mouseup', function(event) {
             var mousePosition = event.mouse.position;
 
             if (mousePosition.x < 250 && mousePosition.y > 315) {
-                setTimeout(rockPosition, 0145)
+                setTimeout(rockPosition, 0145);
             }
-        })
+        });
 
         function rockPosition() {
             if (rock.position.x > 170 || rock.position.y < 450) {
-                createRock()
+                createRock();
             }
-        }
+        };
 
-        var score = 0
+        var score = 0;
 
         function createRock() {
             rock = Bodies.polygon(170, 450, 12, 20);
             World.add(engine.world, rock);
             elastic.bodyB = rock;
-            score ++
-            $('.score').children().text(score)
-        }
+            score++;
+            $('.score').children().text(score);
+        };
 
         var event1;
         var event2;
@@ -133,47 +133,45 @@ $(document).ready(function() {
 
         Events.on(engine, 'tick', function(event) {
             if (objPos1.x > 785 || objPos1.x < 775) {
-                console.log('You moved the box 1!');
-                event1 = true
-                endGame()
-            }
-        })
+                event1 = true;
+                endGame();
+            };
+        });
 
         Events.on(engine, 'tick', function(event) {
             if (objPos2.x > 705 || objPos2.x < 695) {
-                console.log('You moved the box 2!');
-                event2 = true
-                endGame()
-            }
-        })
+                event2 = true;
+                endGame();
+            };
+        });
 
         Events.on(engine, 'tick', function(event) {
             if (objPos3.x > 785 || objPos3.x < 775) {
-                console.log('You moved the box 3!');
-                event3 = true
-                endGame()
-            }
-        })
+                event3 = true;
+                endGame();
+            };
+        });
 
         // run the engine
         Engine.run(engine);
 
         function endGame() {
 
-          if (event1 == true && event2 == true && event3 == true) {
-            alert('YOU WON! \b You used only ' + score + ' shots!')
-            Events.off(engine)
+            if (event1 == true && event2 == true && event3 == true) {
+                alert('YOU WON!\n \nYou beat the level with ' + score + ' shots!');
+                Events.off(engine);
 
-            var again = confirm('Do you want to play again?')
+                var again = confirm('Do you want to play again?');
 
-            if(again === true){
-              $('.score').children().text('0')
-              $('canvas').remove()
-              startGame()
+                if (again === true) {
+                    $('.score').children().text('0');
+                    $('canvas').remove();
+                    startGame();
+                }
+
+            } else {
+                return false;
             }
-          } else {
-            return false
-          }
         }
     }
 })

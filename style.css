@@ -5,6 +5,13 @@ body {
     font-family: 'Bungee', cursive;
     margin-left: 20px;
 }
+.cards {
+  margin-bottom: 0px;
+}
+
+.card {
+  margin: 2rem 0rem 2rem 0rem;
+}
 
 .catapult {
     position: absolute;
@@ -35,14 +42,20 @@ body {
     font-weight: 500;
     text-align: center;
     color: gray;
+    margin-left: 1em;
 }
 canvas {
     width: 800px;
     height: 600px;
+    margin-left: 2em;
 }
 .directions {
     margin-right: 60px;
     margin-top: 37px;
     float: right;
     font-size: 25px;
+}
+
+footer.page-footer {
+  margin-top: 0px;
 }
